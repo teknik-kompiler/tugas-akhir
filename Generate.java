@@ -691,7 +691,27 @@ class Generate
 
                 cell = cell + 29;
                 break;
-
+            case 42:
+            // buat instruksi untuk kembali dari prosedure. 
+                break;
+            case 43:
+            // buat instruksi untuk kembali dari fungsi.
+                break;
+            case 44:
+            //  buat instruksi untuk memanggil suatu prosedur
+                break;
+            case 45:
+            // buat instruksi untuk membentuk tanda block untuk pemanggilan prosedur
+                break;
+            case 46:
+            // buat instruksi untuk membentuk tanda block untuk pemanggilan fungsi.
+                break;
+            case 47:
+            //  buat instruksi untuk memanggil fungsi
+                break;
+            case 48:
+            //  buat instruksi untuk menyimpan argument untuk pemanggilan prosedu/fungsi. 
+                break;
             // R49 : construct instructions similar to R31
             //       for non-function identifier
             case 49:
