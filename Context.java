@@ -196,36 +196,52 @@ class Context
                 }
                 break;
             case 22:
+            // masukkan lexic level dan order number ke dalam tabel simbol
                 break;
             case 23:
+            //  masukkan type int atau bool.
                 break;
             case 24:
+            // masukkan prosedur ke dalam tabel simbol.
                 break;
             case 25:
+            //  masukkan parameter ke dalam tabel simbol. 
                 break;
             case 26:
+            // masukkan fungsi ke dalam tabel simbol
                 break;
             case 27:
+            // keluar dari scope yang mengandung parameter.
                 break;
             case 28:
+            // periksa bahwa identifier identifier merupakan merupakan nama prosedure
                 break;
             case 29:
+            //  periksa bahwa fungsi atau prosedur tak punya parameter
                 break;
             case 30:
+            //  Push jumlah argument = 0 
                 break;
             case 31:
+            // periksa argument terhadap parameter
                 break;
             case 32:
+            // periksa bahwa semua argumen sudah dilihat. Pop jumlah argument
                 break;
             case 33:
+            //  periksa bahwa identifier adalah nama fungsi.
                 break;
             case 34:
+            //  tambah nilai jumlah argument.
                 break;
             case 35:
+            // masukkan jumlah argument (parameter) ke dalam tabel simbol. Pop jumlah argument.
                 break;
             case 36:
+            //  periksa bahwa type dari ekspresi sama dengan type dari fungsi. 
                 break;
             case 37:
+            // if identifier suatu fungsi maka C33 else C20
                 break;
         }
     }
