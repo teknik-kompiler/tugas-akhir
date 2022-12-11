@@ -25,6 +25,7 @@ class Context
         typeStack = new Stack();
         printSymbols = false;
         errorCount = 0;
+        orderNumberStack = new Stack();
     }
 
     /**
@@ -42,6 +43,7 @@ class Context
             case 0:
                 lexicalLevel++;
                 orderNumber = 0;
+                orderNumberStack.push(orderNumber);
                 break;
             case 1:
                 if (printSymbols)
@@ -197,12 +199,16 @@ class Context
                 break;
             case 22:
             // masukkan lexic level dan order number ke dalam tabel simbol
+                currentBucket = symbolHash.find(currentStr); // 1. Cari tabel simbol
+                currentBucket.setLLON(lexicalLevel, orderNumber); // 2. Set lexical level
                 break;
             case 23:
             //  masukkan type int atau bool.
                 break;
             case 24:
             // masukkan prosedur ke dalam tabel simbol.
+                currentBucket = symbolHash.find(currentStr); // 1. Cari tabel simbol
+                currentBucket.setIdKind(2); // 2. 2 itu idnya prosedur
                 break;
             case 25:
             //  masukkan parameter ke dalam tabel simbol. 
@@ -214,7 +220,13 @@ class Context
             // keluar dari scope yang mengandung parameter.
                 break;
             case 28:
-            // periksa bahwa identifier identifier merupakan merupakan nama prosedure
+            // periksa bahwa identifier merupakan merupakan nama prosedure                
+                identifier = symbolStack.peek();
+                bucket = symbolHash.find(identifier);
+                if(bucket.getIdKind() != Bucket.PROCEDURE){
+                    System.out.println("Expected a procedure :"+currentLine);
+                    errorCount++;
+                }
                 break;
             case 29:
             //  periksa bahwa fungsi atau prosedur tak punya parameter
